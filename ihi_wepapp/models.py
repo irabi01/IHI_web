@@ -127,7 +127,6 @@ class Governance(models.Model):
 
 class News(models.Model):
     title = models.CharField(max_length = 500)
-    slug = models.SlugField(max_length = 500, unique = True)
     caption = models.CharField(max_length = 500)
     date = models.DateField()
     location = models.CharField(max_length = 50, default ='Morogoro')

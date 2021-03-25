@@ -7,9 +7,7 @@ from .models import *
 
 @admin.register(News)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('title','id','slug','date','location')
-    prepopulated_fields = {'slug':('title',),}
-
+    list_display = ('title','id','date','location')
 admin.site.register(Events)
 admin.site.register(Publications)
 admin.site.register(Projects)
