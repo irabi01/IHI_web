@@ -169,7 +169,7 @@ if not DEBUG:
     #static and media directory when in production
     STATIC_ROOT = '/home/ihior354/public_html/new_website/static/'
     MEDIA_ROOT = '/home/ihior354/public_html/new_website/media/'
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ihi_wepapp/static'),]
 else:
     #static and media when in local(developemnt)
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
