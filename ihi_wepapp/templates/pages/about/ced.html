@@ -1,0 +1,49 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}CED Message{% endblock %}
+{% block contents %}
+<div class="ced_message">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>CED Message</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mesasge_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="ced_image">
+          <img src="{{ get_ced.image.url }}" alt="{{ get_ced.left_headline}}" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="main_message">
+          <h1>Welcome Aboard!</h1>
+          <p><strong>I welcome you to learn about IHI:</strong> In here, we tell you who we are; where we come from; and what we do. The website design and content are guided by our core values of transparency, respect, initiative, integrity and responsibility. We’re a health research institute seeking to proactively share our work so that you may be the first to know. We invest in people and endeavor to build a dependable workforce of tomorrow.</p>
+          <p>We are also proud to offer specific links you will use to directly access IHI multiple institutional resources, including our publications, funding partners and collaborating partners databases, our training services, our news and events; our jobs, calls and other opportunities; and importantly, our research work. We believe that you will find useful information about our research, training and services that will empower you to make informed choices and decisions.</p>
+          <p><strong>About IHI:</strong> IHI is a world-class research organization in Africa, with a strong track record in developing, testing and validating innovations for health that save lives. Our work aims to improve people’s health and wellbeing through research, training and services. We work across biomedical & ecological sciences, interventions & clinical trials, health-systems and policy.</p>
+          <p>Registered in Tanzania as an independent non-profit outfit, our history dates back to 1956. We are headquartered in Dar es Salaam, but with major branches in Bagamoyo and Ifakara – our original birthplace. The name ‘Ifakara’ refers to ‘a place you go to die,’ a reflection of the historically high burden of malaria disease in the area, before major control efforts started.</p>
+          <p><strong>We’re influencing policy:</strong> Engaging communities in our research activities has helped to improve public health around IHI sites. However, influencing the lives of more people requires translation of the Institute’s findings into broader policies. We have done this successfully for decades in international development policy, including those formulated by the WHO. We intend to double our efforts to ensure that more findings are communicated widely to influence health policies domestically as well.</p>
+          <p><strong>We’re taking science to the public:</strong> IHI work seek to help the ministry of health implement its strategies. The institute’s connections with the government since its founding over fifty years ago have helped it look beyond the policy-making community to the intended beneficiaries of the institute’s efforts – that’s the public.</p>
+          <p>Our community engagement initiative, active for over a decade now, identifies issues arising from the institute’s work and informs communities accordingly. Our resources, including the website, social media channels, the digital library and the data repository, now benefit the public directly.</p>
+          <p><strong>We’re optimistic about the future:</strong> In the years ahead, our mission remains to identify priority health needs of our people and to create scalable solutions for them. This is at the heart of our Strategic Plan 2018-2023. In the long run, IHI harbors the ambition of becoming one of the leading global think tanks and centers of excellence in public health research.</p>
+          <p>Please, join us in learning about the contribution of the fine women and men working for and with IHI. We're all in one boat, and always moving forward.</p>
+          <p>Again, please welcome and feel at home!</p>
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="attachements">
+          <p>{{ get_ced.left_description|safe }}</p>
+          <a href="{{ get_ced.document.url }}" target="_blank">read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

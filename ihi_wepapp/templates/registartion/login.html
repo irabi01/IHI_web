@@ -1,0 +1,29 @@
+{% extends './authbase.html'%}
+{% block title %}Login{% endblock %}
+{% load crispy_forms_tags%}
+{% block authentication %}
+
+  <div class="login_container">
+    <div class="container">
+      <h1>Ifakara Health Institute (IHI)</h1>
+      <div class="row">
+        <div class="col-md-4 offset-md-4">
+          <div class="w3-card outer_card">
+            <div class="w3-card login_form">
+              <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <!-- <legend class="border-bottom mb-1 text-center">Login to your account</legend> -->
+                {{ form|crispy }}
+                <button class="btn btn-outline-primary" type="submit" name="button">Sign In</button>
+              </form>
+              <div class="border-top mt-3">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

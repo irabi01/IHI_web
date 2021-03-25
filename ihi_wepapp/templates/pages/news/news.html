@@ -1,0 +1,121 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}News{% endblock %}
+{% block contents %}
+<div class="events_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>our news</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="teplate_change">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4">
+        <div class="content">
+          <button type="button" name="button" id="grid_button"><i class="fa fa-th-large"></i></button>
+          <button type="button" name="button" id="list_button"><i class="fa fa-list"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="events_section_one" id="news_grid_view">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="content">
+          {% for news in get_news %}
+            <div class="content_list" data-aos="flip-up">
+              <div class="image_section">
+                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid">
+                {% if news.video_file %}
+                  <div class="video_button">
+                    <img src="{% static 'images/play.png' %}" class="img-fluid" alt="play_button" data-toggle="modal" data-target="#staticBackdrop{{news.id}}">
+                  </div>
+                {% endif %}
+                <p>{{ news.caption }}</p>
+              </div>
+              <div class="description_section p-2">
+                <a href="{% url 'newsDetails' news.id %}"><h1>{{ news.title }}</h1></a>
+
+                {% autoescape on %}
+                    <p>{{ news.description|safe|truncatechars:200 }}</p>
+                {% endautoescape %}
+              </div>
+              <div class="more_details">
+                <a href="{% url 'newsDetails' news.id %}">read more</a>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop{{news.id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{news.id}}" aria-hidden="true">
+              <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel{{news.id}}">{{ news.title }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-21by9">
+                      <iframe class="embed-responsive-item" src="{{ news.video_file }}?autoplay=1&mute=1" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="calls_list" data-aos="fade-left">
+          <h1>latest calls</h1>
+          {% for call in get_calls %}
+          <a href="{{ call.call_document.url }}" target="_blank"><p>{{ call.title }}</p></a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="news_section_list_view" id="news_list_view">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {% for news in get_news %}
+        <a href="{% url 'newsDetails' news.id %}">
+          <div class="news_list_view_section">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="image_section">
+                  <img src="{{ news.image.url }}" alt="news-image" class="img-fluid">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="description">
+                  <h1>{{ news.title }}</h1>
+                  <div>
+                    <p>{{ news.location }}:</p>
+                    <p>{{ news.date }}</p>
+                  </div>
+                  <p>{{ news.description|safe|truncatechars:200 }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <hr>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

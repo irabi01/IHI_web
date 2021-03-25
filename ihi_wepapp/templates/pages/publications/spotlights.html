@@ -1,0 +1,41 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Spotlights{% endblock %}
+{% block contents %}
+<div class="policy_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>spotlights</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="policy_page_section_one">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        {% if get_spotlights %}
+          {% for spotlights in get_spotlights %}
+            <div class="content">
+              <div class="image_section">
+                <img src="{{ spotlights.photo.url }}" alt="{{ spotlights.headline }}" class="img-fluid">
+              </div>
+              <h1>{{ spotlights.headline }}</h1>
+              <p>{{ spotlights.description|safe|truncatechars:500 }}</p>
+              <h2><a href="{{ spotlights.pdf_document.url }}" target="_blank">read PDF</a> <i class="fa fa-file-pdf-o"></i></h2>
+              <div class="read_more">
+                <a href="{% url 'spotlightDetails' spotlights.id %}">read more</a>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>No content to display here</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
