@@ -27,7 +27,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 # ALLOWED_HOSTS = ['ihi.pythonanywhere.com']
 if not DEBUG:
-    ALLOWED_HOSTS = ['ihi.or.tz', 'www.ihi.or.tz']
+    ALLOWED_HOSTS = ['ihi.or.tz', 'www.ihi.or.tz', '0.0.0.0']
     SECURE_SSL_REDIRECT=True
     SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO', 'https')
     SESSION_COOKIE_SECURE=True
