@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 from datetime import datetime
+from decouple import config
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -18,15 +19,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'iu57snns!h)eo%827uw3nvuge4yhcm_5h3@bv!$)*kt^g2pwo_'
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 # ALLOWED_HOSTS = ['ihi.pythonanywhere.com']
-ALLOWED_HOSTS = ['*']
+if not DEBUG:
+    ALLOWED_HOSTS = ['ihi.or.tz', 'www.ihi.or.tz']
+    SECURE_SSL_REDIRECT=True
+    SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE=True
+    SESSION_EXPIRE_AT_BROWSER_CLOSE=True
+else:
+    ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -70,7 +77,7 @@ ROOT_URLCONF = 'ihi_backend_web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,12 +97,24 @@ WSGI_APPLICATION = 'ihi_backend_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if not DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': config('DB_PORT', cast=int),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
@@ -144,12 +163,19 @@ SETTINGS_EXPORT = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/ihi/ihi_backend_web/static'
+MEDIA_URL = '/media/'
+
+if not DEBUG:
+    #static and media directory when in production
+    STATIC_ROOT = '/home/ihior354/public_html/new_website/static/'
+    MEDIA_ROOT = '/home/ihior354/public_html/new_website/media/'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+else:
+    #static and media when in local(developemnt)
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
 CKEDITOR_UPLOAD_PATH = "media/"
 
@@ -162,7 +188,5 @@ REST_FRAMEWORK = {
     'DEAFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly',)
 }
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CORS_ORIGIN_ALLOW_ALL = True
