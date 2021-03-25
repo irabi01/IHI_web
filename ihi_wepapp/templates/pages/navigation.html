@@ -1,0 +1,109 @@
+{% load static %}
+{% with request.resolver_match.url_name as url %}
+<nav class="navbar navbar-expand-lg fixed-top navigation">
+  <a class="navbar-brand" href="{% url 'home_view' %}"><img src="{% static 'images/ihilogo.jpg' %}" alt="ihi-logo"></a>
+  <button class="cpBtn navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div></div>
+    <div></div>
+    <div></div>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto w3-card py-2 px-4">
+      <li class="nav-item {% if url == 'home_view' %}active{% endif %}">
+        <a class="nav-link" href="{% url 'home_view' %}">Home</a>
+      </li>
+      <li class="nav-item dropdown {% if url == 'historyPage' or url == 'staffPage' or url == 'whowearePage' or url == 'branchesPage' or url == 'unitAndDepartmentPage' or url == 'cedPage' or url == 'governancePage' %}active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          About
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item {% if url == 'cedPage' %}active{% endif %}" href="{% url 'cedPage' %}">CED Message</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'whowearePage' %}active{% endif %}" href="{% url 'whowearePage' %}">Who we are</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'historyPage' %}active{% endif %}" href="{% url 'historyPage' %}">Our History</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'governancePage' %}active{% endif %}" href="{% url 'governancePage' %}">Governance</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'staffPage' %}active{% endif %}" href="{% url 'staffPage' %}">Staff</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'branchesPage' %}active{% endif %}" href="{% url 'branchesPage' %}">Branches</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'unitAndDepartmentPage' %}active{% endif %}" href="{% url 'unitAndDepartmentPage' %}">Units & Departments</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'researchPlatformPage' %}">Research Platforms</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown {% if url == 'researchPage' or url == 'trainingPage' or url == 'servicePage' %}active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Our Works
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item {% if url == 'researchPage' %}active{% endif %}" href="{% url 'researchPage' %}">Research</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'trainingPage' %}active{% endif %}" href="{% url 'trainingPage' %}">Training</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'servicePage' %}active{% endif %}" href="{% url 'servicePage' %}">Services</a>
+        </div>
+      </li>
+      <li class="nav-item {% if url == 'projectsPage' %}active{% endif %}">
+        <a class="nav-link" href="{% url 'projectsPage' %}">Projects</a>
+      </li>
+      <li class="nav-item {% if url == 'partnerPage' %}active{% endif %}">
+        <a class="nav-link" href="{% url 'partnerPage' %}">Partners</a>
+      </li>
+      <li class="nav-item dropdown {% if url == 'journalPaper' or url == 'policyBriefsPage' or url == 'spotlightsPage' %}active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Publications
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item {% if url == 'journalPaper' %}active{% endif %}" href="{% url 'journalPaper' %}">Journal Papers</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'policyBriefsPage' %}active{% endif %}" href="{% url 'policyBriefsPage' %}">Policy Briefs</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'spotlightsPage' %}active{% endif %}" href="{% url 'spotlightsPage' %}">Spotlights</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown {% if url == 'newsPage' or url == 'eventsPage' or url == 'blogPage' %}active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          News
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item {% if url == 'newsPage' %}active{% endif %}" href="{% url 'newsPage' %}">News</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'eventsPage' %}active{% endif %}" href="{% url 'eventsPage' %}">Events</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'blogPage' %}active{% endif %}" href="{% url 'blogPage' %}">Blog</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown {% if url == 'jobsPage' or url == 'callsPage' or url == 'announcementsPage' %}active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Noticeboard
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item {% if url == 'jobsPage' %}active{% endif %}" href="{% url 'jobsPage' %}">Jobs</a>
+          <div class="dropdown-divider "></div>
+          <a class="dropdown-item {% if url == 'callsPage' %}active{% endif %}" href="{% url 'callsPage' %}">Calls</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item {% if url == 'announcementsPage' %}active{% endif %}" href="{% url 'announcementsPage' %}">Announcements</a>
+        </div>
+      </li>
+      <li class="nav-item {% if url == 'faqsPage' %}active{% endif %}">
+        <a class="nav-link" href="{% url 'faqsPage' %}">FAQs</a>
+      </li>
+      <li class="nav-item {% if url == 'contactPage' %}active{% endif %}">
+        <a class="nav-link" href="{% url 'contactPage' %}">Contacts</a>
+      </li>
+      <li class="nav-item social_media">
+        <a class="nav-link" href="https://web.facebook.com/search/top/?q=ifakara%20health%20institute&epa=SEARCH_BOX" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a class="nav-link" href="https://twitter.com/search?q=Ifakara%20Health%20Institute&src=tyah" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a class="nav-link" href="https://www.youtube.com/results?search_query=ifakara+health+institute" target="_blank"><i class="fa fa-youtube"></i></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-auto ">
+
+    </ul>
+  </div>
+</nav>
+{% endwith %}

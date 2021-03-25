@@ -1,0 +1,85 @@
+<div class="footer_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text">
+          <p>Subscribe here for new information from our diverse feeds.</p>
+        </div>
+        <div class="subscribe_form">
+          <!-- <div class="row mt-2">
+            <div class="col-md-12">
+              <div class="message w3-center">
+                <div class="message_column">
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="w3-card alert alert-{{ message.tags }} alert-dismissible fade show w3-animate-top" role="alert">
+                        {{message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+              </div>
+            </div>
+          </div>
+          </div> -->
+          <form class="" action="{% url 'subscriptionFunction' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-7">
+                  <input type="email" name="email_address" value="" placeholder="Enter your email to subscribe" required>
+                </div>
+                <div class="col-md-3">
+                  <select class="" name="topic" required>
+                    <option selected> select topic</option>
+                    <option value="News">News</option>
+                    <option value="Jobs">Jobs</option>
+                    <option value="">Events</option>
+                    <option value="Events">Blogs</option>
+                    <option value="Publications">Publications</option>
+                    <option value="Spotlights">Spotlights</option>
+                    <option value="Policy Briefs">Policy Briefs</option>
+                    <option value="Calls">Calls</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <button type="submit" name="button">Subscribe</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="content_link">
+          <a href="{% url 'cedPage' %}">ced message</a>
+          <a href="{% url 'whowearePage' %}">who we are</a>
+          <a href="{% url 'historyPage' %}">our history</a>
+          <a href="{% url 'staffPage' %}">staff</a>
+          <a href="{% url 'researchPlatformPage' %}">research platforms</a>
+          <a href="{% url 'unitAndDepartmentPage' %}">units & departments</a>
+          <a href="{% url 'branchesPage' %}">branches</a>
+          <a href="{% url 'researchPage' %}">research</a>
+          <a href="{% url 'trainingPage' %}">training</a>
+          <a href="{% url 'servicePage' %}">services</a>
+          <a href="{% url 'jobsPage' %}">jobs</a>
+          <a href="{% url 'callsPage' %}">calls</a>
+        </div>
+      </div>
+    </div>
+    <div class="follow_social_media">
+      <h1>follow us on </h1>
+      <div class="social_media">
+        <a href="https://web.facebook.com/search/top/?q=ifakara%20health%20institute&epa=SEARCH_BOX" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com/search?q=Ifakara%20Health%20Institute&src=tyah" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.youtube.com/results?search_query=ifakara+health+institute" target="_blank"><i class="fa fa-youtube"></i></a>
+      </div>
+      <hr>
+      <p><i class="fa fa-copyright"></i> {{ settings.CURRENT_YEAR|date:'Y' }} Ifakara Health Institute. All rights reserved.</p>
+    </div>
+  </div>
+</div>

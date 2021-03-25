@@ -1,0 +1,348 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Governance{% endblock %}
+{% block contents %}
+<div class="governance_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Our Governance</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="governance_page_section_one">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Our governance structure has three layers: The Board of Governors (BOG); the Board of Trustees (BOT), and the Management Committee (MC).</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="governance_page_section_two">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <p>Members of BOG and BOT include representatives of Tanzania Ministry of Health, National Institute for Medical Research (NIMR), Swiss Tropical & Public Health Institute (Swiss TPH), Swiss Agency for Development & Cooperation (SDC), and Chief Executive Director (CED) of IHI, who is the secretary to both the BOG and the BOT. Members of the MC, which is chaired by the CED, are the Director of Science (DOS), Chief Operations Officer (COO), and heads of research departments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="governance_page_section_three">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Board of Governors (BOG)</h1>
+          <p>The <strong>Board of Governors</strong> mainly comprises the Founder Members of the Institute. The main duties of the BOG are to appoint the Members of the BOT, to approve the strategy of the Institute, to appoint auditors, and to oversee the BOT.</p>
+          <div class="team_member">
+            {% if get_bog %}
+              {% for gv in get_bog %}
+              <div class="team">
+                <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid">
+                <p>{{ gv.first_name }} {{ gv.last_name }}</p>
+                <span>{{ gv.position }}</span>
+                <a href="#" data-toggle="modal" data-target="#exampleModal{{gv.id}}">profile</a>
+              </div>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal{{gv.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{gv.id}}" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="image_div">
+                            <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid w3-card">
+                          </div>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="content">
+                            <div class="headline_part w3-card mb-2">
+                              <h2>{{ gv.headline }}</h2>
+                            </div>
+                            <div class="description_part w3-card p-4">
+                              <p>{{ gv.description|safe }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="governance_page_section_four">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Board of Trustees (BOT)</h1>
+          <p>The main duties of the <strong>Board of Trustees</strong> are to appoint the Director; approve the annual budgets, operational plans, and annual reports of activities; approve the financing strategy of the Institute; and to adopt and approve audited accounts. In addition, the BOT ensures the MC formulate regulations for efficient and effective management of the funds as well as to direct the MC. The BOT has two sub committees: Scientific Advisory Committee (SAC) and Finance, Audit & Risk Committee (FARC).</p>
+          <div class="team_member">
+            {% if get_bot %}
+              {% for gv in get_bot %}
+              <div class="team">
+                <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid">
+                <p>{{ gv.first_name }} {{ gv.last_name }}</p>
+                <span>{{ gv.position }}</span>
+                <a href="#" data-toggle="modal" data-target="#exampleModal{{gv.id}}">profile</a>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal{{gv.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{gv.id}}" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="image_div">
+                            <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid w3-card">
+                          </div>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="content">
+                            <div class="headline_part w3-card mb-2">
+                              <h2>{{ gv.headline }}</h2>
+                            </div>
+                            <div class="description_part w3-card p-4">
+                              <p>{{ gv.description|safe }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="governance_page_section_five">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Scientific Advisory Committee</h1>
+          <p>The <strong>Scientific Advisory Committee</strong> (SAC)’s primary function is to review scientific strategies of the Institute and advise the BOT on the most appropriate pathway. The committee meets twice a year and deliberates on current programs and also future plans.</p>
+          <p>Based on these deliberations, the Committee advises the BOT on key areas of investment, and also on core focus areas to be pursued in the subsequent period. The SAC membership is predominantly from outside Ifakara Health Institute.</p>
+          <p>Current SAC members and their roles:</p>
+          <div class="team_member">
+            {% if get_sac %}
+              {% for gv in get_sac %}
+              <div class="team">
+                <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid">
+                <p>{{ gv.first_name }} {{ gv.last_name }}</p>
+                <span>{{ gv.position }}</span>
+                <a href="#" data-toggle="modal" data-target="#exampleModal{{gv.id}}">profile</a>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal{{gv.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{gv.id}}" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="image_div">
+                            <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid w3-card">
+                          </div>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="content">
+                            <div class="headline_part w3-card mb-2">
+                              <h2>{{ gv.headline }}</h2>
+                            </div>
+                            <div class="description_part w3-card p-4">
+                              <p>{{ gv.description|safe }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="governance_page_section_six">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Finance, Audit and Risk Committee</h1>
+            <p>The <strong>Finance, Audit and Risk Committee</strong> is one of the two sub committees of the Board of Trustees (BOT). The committee has five members, with the Chairman of the committee also being a member of the BOT. The members are appointed by a resolution of the BOT.</p>
+            <p>Functions of the Committee include:</p>
+            <ol>
+              <li>Assist the BOT in discharging its duties relating to the safeguarding of assets and to ensure that financial risks are managed</li>
+              <li>Prepare and recommend decisions to be taken by the BOTon all maters relating to finance, Audit and Risk Management.</li>
+              <li>Review audited financial statements and make recommendations to the BOT.</li>
+              <li>Monitor management’s progress towards internal and external audit recommendations.</li>
+              <li>Ensure the independence , efficacy and effectiveness of internal and external audit functions.</li>
+              <li>Ensure effective interactions between internal auditors, external auditors, the board, the management, funding partners and stakeholders.</li>
+              <li>Review compliance with applicable legal, regulatory and accounting standards in the organization’s audited financial reports</li>
+              <li>Contribute to the climate of financial discipline, continuous improvements and controls.</li>
+            </ol>
+            <p>Current FARC members and their roles:</p>
+            <div class="team_member">
+              {% if get_farc %}
+                {% for gv in get_farc %}
+                <div class="team">
+                  <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid">
+                  <p>{{ gv.first_name }} {{ gv.last_name }}</p>
+                  <span>{{ gv.position }}</span>
+                  <a href="#" data-toggle="modal" data-target="#exampleModal{{gv.id}}">profile</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{gv.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{gv.id}}" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="image_div">
+                              <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid w3-card">
+                            </div>
+                          </div>
+                          <div class="col-md-9">
+                            <div class="content">
+                              <div class="headline_part w3-card mb-2">
+                                <h2>{{ gv.headline }}</h2>
+                              </div>
+                              <div class="description_part w3-card p-4">
+                                <p>{{ gv.description|safe }}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="governance_page_section_seven">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Management Committee (MC)</h1>
+          <p>The Management Committee manages day-to-day affairs of the Institute and the appointment and discharge of its staff. The MC reports to the BOT by submitting quarterly progress reports and annual plan of operation and financial statements including audited accounts. The management team is led by the Chief Executive Director who reports to the BOT.</p>
+          <div class="team_member">
+            {% if get_mc %}
+              {% for gv in get_mc %}
+              <div class="team">
+                <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid">
+                <p>{{ gv.first_name }} {{ gv.last_name }}</p>
+                <span>{{ gv.position }}</span>
+                <a href="#" data-toggle="modal" data-target="#exampleModal{{gv.id}}">profile</a>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal{{gv.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{gv.id}}" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="image_div">
+                            <img src="{{ gv.image.url }}" alt="{{ gv.first_name }}-{{ gv.last_name }}" class="img-fluid w3-card">
+                          </div>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="content">
+                            <div class="headline_part w3-card mb-2">
+                              <h2>{{ gv.headline }}</h2>
+                            </div>
+                            <div class="description_part w3-card p-4">
+                              <p>{{ gv.description|safe }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="governance_page_section_eight">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <img src="{% static 'images/ihi_organogram.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

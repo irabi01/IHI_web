@@ -1,0 +1,289 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block contents %}
+<div class="home_container">
+  <!-- <div class="container"> -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <header>
+          <div class="overlay"></div>
+          <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
+            {% if get_website_video.video_file.url %}
+              <source src="{{ get_website_video.video_file.url }}" type="video/mp4"/>
+            {% else %}
+              <source src="{% static 'images/default_vid.mp4' %}" type="video/mp4"/>
+            {% endif %}
+          </video>
+          <div class="container h-100">
+            <div class="d-flex h-100 text-center align-items-center">
+              <div class="w-100 text-white">
+                <h1 class="display-1 wow zoomIn" data-wow-delay="1s">We're a world class research Institute</h1>
+                <h2 class="display-4 lead mb-0 wow fadeIn" data-wow-delay="2s"> We exist to improve health and wellbeing of people</h2>
+              </div>
+            </div>
+          </div>
+        </header>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</div>
+
+<div class="home_second_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>We have a strong track record in developing, testing and validating innovations for health that save lives. Our mission is to improve people’s health and wellbeing through research, training and services.</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_third_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="content">
+          <a href="{% url 'researchPage' %}">
+            <div class="service"  data-aos="zoom-out-up">
+              <h1>Research</h1>
+              <p>IHI is best known for its work on malaria. However, we focus on all health challenges identified as important by the Tanzanian government and the people living in communities near each of the IHI facilities.</p>
+            </div>
+          </a>
+
+          <a href="{% url 'trainingPage' %}">
+            <div class="service"  data-aos="zoom-out-up">
+              <h1>training</h1>
+              <p>While IHI’s primary mission continues to be research, development of human capacity within and beyond the institute has always been valued and is recognized as an essential component... </p>
+            </div>
+          </a>
+
+          <a href="{% url 'servicePage' %}">
+            <div class="service"  data-aos="zoom-out-up">
+              <h1>services</h1>
+              <p>IHI offers a number of dedicated premium services to projects, staff, policy-makers and the general public. They range from archiving study data to useful information that may affect the lives of the partners it works with.</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_fourth_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="pub_img">
+          <img src="{% static 'images/publication.PNG' %}" alt="publication-img" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="publication_content w3-card" data-aos="fade-right">
+          <h1>Our Contribution to New Knowledge in Public Health</h1>
+          <p>Each year, our scientists publish over 100 articles in international journals</p>
+          <div class="btn">
+            <a href="{% url 'journalPaper' %}">Check out latest publications</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_section_5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>IHI Data Repository</h1>
+          <p>Our Data Repository provides information from hundreds of our past projects that can be useful for research, training, policy and action.</p>
+          <div class="btn">
+            <a href="http://data.ihi.or.tz/index.php/catalog/central/about" target="_blank">Repository</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_section_6">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="hub_img">
+          <img src="{% static 'images/ifakarahub.PNG' %}" alt="publication-img" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="hub_content w3-card">
+          <h1>Ifakara Hub</h1>
+          <p>A vibrant community of  inspiration, ideation and collaboration for solution development</p>
+          <div class="btn">
+            <a href="https://www.ifakarahub.com/" target="_blank">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_section_7">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>ISO 9001: 2015</h1>
+          <p>Since 2018, our management system has been certified as ISO 9001: 2015 compliant</p>
+          <div class="btn">
+            <a href="{% url 'isoPage' %}">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_section_8">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <div class="school" data-aos="fade-right">
+            <img src="{% static 'images/graduation.png' %}" alt="">
+            <h1>Our accredited Masters program</h1>
+            <p>We offer a unique accredited Masters of Science in Public Health Research (MScPHR) in collaboration with the Nelson Mandela African Institution for Science and Technology. We have a dedicated Training Center for the program in Bagamoyo, Tanzania.</p>
+            <div class="btn">
+              <a href="{% url 'trainingPage' %}">Exprole</a>
+            </div>
+          </div>
+          <div class="school" data-aos="fade-left">
+            <img src="{% static 'images/microscope.png' %}" alt="">
+            <h1>Our ISO 15189:2012 Accredited Labs</h1>
+            <p>Our BSL II labs in Bagamoyo have been accredited as ISO 15189:2012 compliant by the Southern African Development Community Accreditation Service (SADCAS).</p>
+            <div class="btn">
+              <a href="#">Exprole</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_project">
+  <div class="container">
+    <h2>Our Projects</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          {% for project in get_projects %}
+            <a href="{% url 'projectDetails' project.id %}">
+            <div class="project">
+                <h1>{{ project.title }}</h1>
+                <p>{{ project.description|safe|truncatechars:200 }}</p>
+            </div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="more_project">
+          <a href="{% url 'projectsPage' %}">More Projects</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_director_message">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Welcome aboard!</h1>
+          <h2>I welcome you to learn about IHI.</h2>
+          <p>In here, we tell you who we are; where we come from; and what we do. The website design and content are guided by our core values of transparency, respect, initiative, integrity and responsibility. We’re a health research institute seeking to proactively share our work so that you may be the first to know. We invest in people and endeavor to build a dependable workforce of tomorrow.</p>
+          <div class="btn">
+            <a href="{% url 'cedPage' %}">Read the message</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_event_news_job_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <div class="news">
+            <a href="{% url 'newsPage' %}"><h2>News <i class="fa fa-arrow-right"></i></h2></a>
+            {% for n in get_news %}
+            <div class="new_content">
+              <a href="{% url 'newsDetails' n.id %}"><h1>{{ n.title }}</h1></a>
+              <p>{{ n.description|safe|truncatechars:100}}</p>
+              <span>{{ n.date }}</span>
+            </div>
+            {% endfor %}
+
+          </div>
+          <div class="events">
+            <a href="{% url 'eventsPage' %}"><h2>Events <i class="fa fa-arrow-right"></i></h2></a>
+            {% for e in get_events %}
+            <div class="events_content">
+              <a href="{% url 'eventDetails' e.id %}"><h1>{{ e.title }}</h1></a>
+              <p>{{ e.description|safe|truncatechars:100}}</p>
+              <span>{{ e.event_date }}, {{ e.event_time}}</span>
+            </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="home_counter_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <div class="counter">
+            <a href="{% url 'journalPaper' %}">
+              <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+              <h1>100<sup>+</sup></h1>
+              <p>Publications</p>
+            </a>
+          </div>
+          <div class="counter">
+            <a href="{% url 'projectsPage' %}">
+              <i class="fa fa-list-alt" aria-hidden="true"></i>
+              <h1>60<sup>+</sup></h1>
+              <p>Active Projects</p>
+            </a>
+          </div>
+          <div class="counter">
+            <a href="{% url 'staffPage' %}">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              <h1>300<sup>+</sup></h1>
+              <p>Creative Staff</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

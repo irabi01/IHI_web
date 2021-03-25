@@ -1,0 +1,49 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Contacts{% endblock %}
+{% block contents %}
+<div class="faqs_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>Frequently Asked Questions</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="faqs_list">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="content">
+
+
+          <div class="accordion" id="accordionExample">
+            {% for f in faqs %}
+              <div class="card w3-card">
+                <div class="card-header" id="heading{{ f.id }}">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{ f.id }}" aria-expanded="{% if f.id == 1 %}true{% endif %}" aria-controls="collapse{{ f.id }}">
+                      {{ f.title }}
+                    </button>
+                  </h2>
+                </div>
+
+                <div id="collapse{{ f.id }}" class="collapse {% if f.id == 1 %}show{% endif %}" aria-labelledby="heading{{ f.id }}" data-parent="#accordionExample">
+                  <div class="card-body">
+                    {{ f.description|safe }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

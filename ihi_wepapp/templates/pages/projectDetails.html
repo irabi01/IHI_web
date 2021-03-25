@@ -1,0 +1,44 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Project Details{% endblock %}
+{% block contents %}
+<div class="project_details_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>{{ get_single_project.title }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="project_details_section_one">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="project_details_staff_part">
+          <p>Principal Investigator: <span>{{ get_single_project.principal_investigator }}</span></p>
+          <p>Project leader/ Coordinator: <span>{{ get_single_project.project_leader }}</span></p>
+          <p>Project Administrator: <span>{{ get_single_project.administrator }}</span></p>
+          <p>Funding Partner: <span>{{ get_single_project.funding_partner }}</span></p>
+          <p>Start date: <i>{{ get_single_project.start_date }}</i></p>
+          <p>End date: <i>{{ get_single_project.end_date }}</i></p>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="project_details_content">
+          <div class="image_part">
+            <img src="{{ get_single_project.image.url }}" alt="{{ get_single_project.title }}" class="img-fluid">
+          </div>
+          <div class="other_contents">
+            <h1>{{ get_single_project.title }}</h1>
+            <p>{{ get_single_project.description|safe }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

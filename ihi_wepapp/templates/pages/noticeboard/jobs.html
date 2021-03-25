@@ -1,0 +1,44 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Jobs{% endblock %}
+{% block contents %}
+<div class="job_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>latest jobs</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="job_section_one">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="content">
+          {% for job in get_job %}
+          <div class="job_list">
+            <h1>{{ job.title }}</h1>
+            <p>{{ job.description|safe }}</p>
+            <a href="{{ job.job_document.url }}" target="_blank">more details</a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- <div class="col-md-3">
+        <div class="events_list">
+          <h1>latest events</h1>
+          {% for event in get_events %}
+          <a href="{% url 'eventDetails' event.id %}">
+            <img src="{{ event.image.url }}" alt="event.title" class="img-fluid">
+            <p>{{ event.title }}</p>
+          </a>
+          {% endfor %}
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+{% endblock %}

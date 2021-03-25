@@ -1,0 +1,42 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Blog Details{% endblock %}
+{% block contents %}
+<div class="news_details"
+style="
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url({{get_single_blog.image.url}});
+">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="title_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="content">
+          <blockquote class="blockquote">
+            <p class="mb-0">{{ get_single_blog.title }}</p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="description_section">
+          <div class="image_part">
+            <img src="{{ get_single_blog.image.url }}" alt="{{ get_single_blog.title }}" class="img-fluid">
+          </div>
+          <p>{{ get_single_blog.description|safe }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

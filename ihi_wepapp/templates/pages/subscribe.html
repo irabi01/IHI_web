@@ -1,0 +1,65 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Contacts{% endblock %}
+{% block contents %}
+<div class="subscribe_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+            <h1>Welcome aboard!</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="sub_section_one">
+  <div class="container">
+    <div class="content">
+      <h2>Thanks for signing up to our newsletter - you're all set and will be receiving the first email soon.</h2>
+      <div class="back_home">
+        <a href="{% url 'home_view' %}">Continue viewing our website</a>
+      </div>
+      <div class="alittle_bit_about_us">
+        <h2>A little bit about us</h2>
+        <p>Ifakara Health Institute (IHI) is a leading health research organization in Africa, with a strong track record of developing, testing and validating innovations for health. We are driven by core strategic mandate for research, training and services. The institute’s work spans across the full research lifecycle from basic science to policy and translation.</p>
+      </div>
+      <div class="our_core_value">
+        <h2>Our core values</h2>
+        <ul>
+          <li>
+            Transparency
+            <ul class="inside">
+              <li>“We share information and results widely. We keep our teams and stakeholders informed on issues that may affect them directly or indirectly.”</li>
+            </ul>
+          </li>
+          <li>
+            Responsibility
+            <ul class="inside">
+              <li>“We take ownership of our objectives. We accept responsibility and accountability. We don’t make excuses. We help others to ensure that results are achieved.”</li>
+            </ul>
+          </li>
+          <li>
+            Integrity
+            <ul class="inside">
+              <li>“We proudly uphold the values of honesty, truthfulness and sincerity, while remaining fair and ethical in all our doings and situations.”</li>
+            </ul>
+          </li>
+          <li>
+            Respect
+            <ul class="inside">
+              <li>“We treat each other with courtesy, kindness and empathy. We respect diversity and dignity.”</li>
+            </ul>
+          </li>
+          <li>
+            Initiative
+            <ul class="inside">
+              <li>“We value flexibility. We use initiative to solve problems. We encourage creativity and innovation.”</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

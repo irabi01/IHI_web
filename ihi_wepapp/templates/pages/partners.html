@@ -1,0 +1,48 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Partners{% endblock %}
+{% block contents %}
+<div class="partners_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>our partners</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="partner_section_one">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <p>We work with partners from across the globe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="partner_section_two">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>funding partners</h1>
+        <div class="content">
+          {% for partner in get_partner %}
+          <a href="{{partner.link}}" target="_blank">{{partner.fullname}}</a>
+          {% endfor %}
+        </div>
+        <hr>
+        <h1>collaborating partners</h1>
+        <div class="content">
+          {% for partner_c in get_partner_collaborating %}
+          <a href="{{partner_c.link}}" target="_blank">{{partner_c.fullname}}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

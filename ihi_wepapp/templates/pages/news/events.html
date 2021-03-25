@@ -1,0 +1,53 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Events{% endblock %}
+{% block contents %}
+<div class="events_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          <h1>our events</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="events_section_one">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="content">
+          <div class="row">
+            {% for event in get_events %}
+            <div class="col-md-12">
+              <div class="content_list">
+                <div class="image_section">
+                  <img src="{{ event.image.url }}" alt="{{ event.title}}" class="img-fluid">
+                  <p>{{ event.caption }}</p>
+                </div>
+                <div class="description_section p-2">
+                  <a href="{% url 'eventDetails' event.id %}"><h1>{{ event.title }}</h1></a>
+                  <p>{{ event.description|safe|truncatechars:250 }}</p>
+                </div>
+                <div class="more_details">
+                  <a href="{% url 'eventDetails' event.id %}">read more</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="calls_list">
+          <h1>latest calls</h1>
+          {% for call in get_calls %}
+          <a href="{{ call.call_document.url }}" target="_blank"><p>{{ call.title }}</p></a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
