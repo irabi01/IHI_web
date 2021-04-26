@@ -33,7 +33,7 @@ if not DEBUG:
     SESSION_COOKIE_SECURE=True
     SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 else:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['ihi.or.tz', 'www.ihi.or.tz']
 
 # Application definition
 
@@ -167,13 +167,17 @@ MEDIA_URL = '/media/'
 
 if not DEBUG:
     #static and media directory when in production
-    STATIC_ROOT = '/home/ihior354/public_html/new_website/static/'
-    MEDIA_ROOT = '/home/ihior354/public_html/new_website/media/'
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ihi_wepapp/static'),]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    STATIC_ROOT = '/home/ihior354/public_html/static/'
+    MEDIA_ROOT = '/home/ihior354/public_html/media/'
+    # MEDIA_ROOT = (
+    #         os.path.join(BASE_DIR, 'media')
+    #     )
+
 else:
     #static and media when in local(developemnt)
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    MEDIA_ROOT = [os.path.join(BASE_DIR, 'media')]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
