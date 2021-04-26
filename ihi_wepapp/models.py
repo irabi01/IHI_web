@@ -3,6 +3,7 @@ import datetime
 from datetime import datetime
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.text import slugify
 import uuid
 # Create your models here.
 class Events(models.Model):
