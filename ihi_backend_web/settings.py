@@ -33,7 +33,8 @@ if not DEBUG:
     SESSION_COOKIE_SECURE=True
     SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 else:
-    ALLOWED_HOSTS = ['ihi.or.tz', 'www.ihi.or.tz']
+    ALLOWED_HOSTS = []
+    # ALLOWED_HOSTS = ['ihi.or.tz', 'www.ihi.or.tz']
 
 # Application definition
 

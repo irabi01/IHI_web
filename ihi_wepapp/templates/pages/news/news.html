@@ -13,7 +13,7 @@
     </div>
   </div>
 </div>
-<div class="teplate_change">
+<!-- <div class="teplate_change">
   <div class="container">
     <div class="row">
       <div class="col-md-8"></div>
@@ -25,14 +25,14 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="events_section_one" id="news_grid_view">
   <div class="container">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-8 offset-md-2">
         <div class="content">
           {% for news in get_news %}
-            <div class="content_list" data-aos="flip-up">
+            <div class="content_list">
               <div class="image_section">
                 <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid">
                 {% if news.video_file %}
@@ -44,10 +44,7 @@
               </div>
               <div class="description_section p-2">
                 <a href="{% url 'newsDetails' news.id %}"><h1>{{ news.title }}</h1></a>
-
-                {% autoescape on %}
-                    <p>{{ news.description|safe|truncatechars:200 }}</p>
-                {% endautoescape %}
+                  <p>{{ news.description|safe|truncatechars:150 }}</p>
               </div>
               <div class="more_details">
                 <a href="{% url 'newsDetails' news.id %}">read more</a>
@@ -75,46 +72,14 @@
           {% endfor %}
         </div>
       </div>
-      <div class="col-md-5">
+      <!-- <div class="col-md-5">
         <div class="calls_list" data-aos="fade-left">
           <h1>latest calls</h1>
           {% for call in get_calls %}
           <a href="{{ call.call_document.url }}" target="_blank"><p>{{ call.title }}</p></a>
           {% endfor %}
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="news_section_list_view" id="news_list_view">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        {% for news in get_news %}
-        <a href="{% url 'newsDetails' news.id %}">
-          <div class="news_list_view_section">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="image_section">
-                  <img src="{{ news.image.url }}" alt="news-image" class="img-fluid">
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="description">
-                  <h1>{{ news.title }}</h1>
-                  <div>
-                    <p>{{ news.location }}:</p>
-                    <p>{{ news.date }}</p>
-                  </div>
-                  <p>{{ news.description|safe|truncatechars:200 }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-        <hr>
-        {% endfor %}
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

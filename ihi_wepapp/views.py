@@ -105,10 +105,8 @@ def contactPage(request):
 
 def jobsPage(request):
     get_job = Jobs.objects.all().order_by('-id')
-    get_events = Events.objects.all().order_by('-id')[:2]
     context = {
         'get_job':get_job,
-        'get_events': get_events
     }
     template_name = 'pages/noticeboard/jobs.html'
     return render(request, template_name, context)
@@ -116,10 +114,10 @@ def jobsPage(request):
 
 def callsPage(request):
     get_calls = Calls.objects.all().order_by('-id')
-    get_events = Events.objects.all().order_by('-id')[:2]
+    # get_events = Events.objects.all().order_by('-id')[:2]
     context = {
         'get_calls':get_calls,
-        'get_events': get_events
+        # 'get_events': get_events
     }
     template_name = 'pages/noticeboard/calls.html'
     return render(request, template_name, context)
@@ -127,10 +125,10 @@ def callsPage(request):
 
 def announcementsPage(request):
     get_opportunity = Opportunity.objects.all().order_by('-id')
-    get_events = Events.objects.all().order_by('-id')[:2]
+    # get_events = Events.objects.all().order_by('-id')[:2]
     context = {
         'get_opportunity':get_opportunity,
-        'get_events': get_events
+        # 'get_events': get_events
     }
     template_name = 'pages/noticeboard/announcements.html'
     return render(request, template_name, context)

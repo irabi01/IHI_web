@@ -20,24 +20,16 @@
         <div class="content">
           {% for job in get_job %}
           <div class="job_list">
+            {% if job.uploaded_date %}
+              <span>{{ job.uploaded_date }}</span>
+            {% endif %}
             <h1>{{ job.title }}</h1>
             <p>{{ job.description|safe }}</p>
-            <a href="{{ job.job_document.url }}" target="_blank">more details</a>
+            <a href="{{ job.job_document.url }}" target="_blank">more details <i class="fa fa-long-arrow-right"></i></a>
           </div>
           {% endfor %}
         </div>
       </div>
-      <!-- <div class="col-md-3">
-        <div class="events_list">
-          <h1>latest events</h1>
-          {% for event in get_events %}
-          <a href="{% url 'eventDetails' event.id %}">
-            <img src="{{ event.image.url }}" alt="event.title" class="img-fluid">
-            <p>{{ event.title }}</p>
-          </a>
-          {% endfor %}
-        </div>
-      </div> -->
     </div>
   </div>
 </div>

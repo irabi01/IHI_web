@@ -16,7 +16,7 @@
 <div class="events_section_one">
   <div class="container">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-8 offset-md-2">
         <div class="content">
           <div class="row">
             {% for event in get_events %}
@@ -39,14 +39,14 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5">
+      <!-- <div class="col-md-5">
         <div class="calls_list">
           <h1>latest calls</h1>
           {% for call in get_calls %}
           <a href="{{ call.call_document.url }}" target="_blank"><p>{{ call.title }}</p></a>
           {% endfor %}
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
