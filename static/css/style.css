@@ -1142,7 +1142,8 @@ body{
   padding: 50px 0px;
 }
 .job_section_one .content .job_list{
-  background: var(--grayColor);
+  background: var(--whiteColor);
+  border: 2px solid var(--grayColor);
   padding: 10px;
   border-radius: var(--borderRadius);
   margin-bottom: 10px;
@@ -1151,6 +1152,12 @@ body{
   font-family: var(--fontFamily);
   font-size: 20px;
   color: var(--blackColor);
+  font-weight: bold;
+}
+.job_section_one .content .job_list span{
+  font-family: var(--fontFamily);
+  font-size: 14px;
+  color: var(--mainColor);
   font-weight: bold;
 }
 .job_section_one .content .job_list p{
@@ -1691,20 +1698,7 @@ body{
   text-transform: capitalize;
   border: none;
 }
-@media only screen and (max-width: 991px){
-  .staff_section_one .staff_list_section{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
-  }
-}
-@media only screen and (max-width: 768px){
-  .staff_section_one .staff_list_section{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
-  }
-}
+
 .staff_section_one .search_section{
   position: sticky;
   top: 100px;
@@ -1716,24 +1710,48 @@ body{
   padding: 5px 10px;
 }
 .staff_details_page{
-  background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/bg4.jpg');
-  padding: 200px 0px 50px 0px;;
+  /* background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/bg4.jpg'); */
+  padding: 100px 0px 50px 0px;;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  text-align: var(--centerAlign);
+  /* text-align: var(--centerAlign); */
+}
+.staff_details_page .content{
+  border: 1px solid #eee;
+  /* box-shadow: 0 8px 6px -6px black; */
+}
+.staff_details_page .content .items{
+  display: flex;
+  align-items: var(--centerAlign);
+  position: relative;
+}
+.staff_details_page .content .items .left{
+  border: 2px solid var(--mainColor);
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: var(--centerAlign);
+  align-items: var(--centerAlign);
+  position: absolute;
+  left: -40px;
+  background: var(--whiteColor);
+}
+.staff_details_page .content .items .right{
+  margin-left: 60px;
 }
 .staff_details_page .content h1{
   font-family: var(--fontFamily);
-  font-size: 50px;
-  color: var(--whiteColor);
+  font-size: 30px;
+  color: var(--blackColor);
   font-weight: bold;
   text-transform: capitalize;
 }
 .staff_details_page .content p{
   font-family: var(--fontFamily);
-  font-size: 30px;
-  color: var(--whiteColor);
+  font-size: 20px;
+  color: var(--blackColor);
   font-weight: bold;
   text-transform: capitalize;
 }
@@ -1779,30 +1797,60 @@ body{
   text-decoration: none;
 }
 .staff_details_section_one .headline_and_description_section{
-  background: var(--whiteColor);
+  background: #eee;
   padding: 10px;
+  margin-bottom: 10px;
 }
 .staff_details_section_one .headline_and_description_section .headline{
   background: var(--whiteColor);
   padding: 10px;
-  text-align: var(--centerAlign);
   margin-bottom: 4px;
+  border-radius: var(--borderRadius)
 }
 .staff_details_section_one .headline_and_description_section .headline h1{
   color: var(--blackColor);
   font-family: var(--fontFamily);
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
 }
 .staff_details_section_one .headline_and_description_section .description{
   background: var(--whiteColor);
   padding: 10px;
+  border-radius: var(--borderRadius)
 }
 .staff_details_section_one .headline_and_description_section .description p{
   font-family: var(--fontFamily);
   font-size: 15px;
   color: var(--blackColor);
 }
+
+
+@media only screen and (max-width: 991px){
+  .staff_section_one .staff_list_section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
+}
+@media only screen and (max-width: 768px){
+  .staff_section_one .staff_list_section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+  }
+  .staff_details_page .content .items .left{
+    display: none;
+  }
+  .staff_details_page .content .items .right{
+    margin-left: 10px;
+  }
+  .staff_details_section_one .profile_image{
+    margin-bottom: 10px;
+  }
+}
+
+
+
 
 
 /*=================== history_page ===================*/

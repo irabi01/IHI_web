@@ -17,7 +17,7 @@ class Events(models.Model):
     image = models.FileField(default='settings.MEDIA_ROOT/logos/anonymous.jpg')
     description = RichTextField()
     class Meta:
-        verbose_name_plural = "Events Lists"
+        verbose_name_plural = "Events"
     def __str__(self):
         return self.title
 
@@ -81,7 +81,7 @@ class Staffs(models.Model):
     description = RichTextField()
     publication_link = models.URLField(blank = True)
     class Meta:
-        verbose_name_plural = "Staffs List"
+        verbose_name_plural = "Staffs"
     def __str__(self):
         return self.first_name +" - "+ self.last_name
 
@@ -103,7 +103,7 @@ class Projects(models.Model):
     image = models.FileField(default='settings.MEDIA_ROOT/logos/anonymous.jpg')
     description = RichTextUploadingField()
     class Meta:
-        verbose_name_plural = "Projects List"
+        verbose_name_plural = "Projects"
     def __str__(self):
         return self.title
 
@@ -123,7 +123,7 @@ class Governance(models.Model):
     description = RichTextField()
     publication_link = models.URLField(blank = True)
     class Meta:
-        verbose_name_plural = "Governance List"
+        verbose_name_plural = "Governance"
     def __str__(self):
         return self.first_name +" - "+ self.last_name
 
@@ -138,7 +138,7 @@ class News(models.Model):
 
 
     class Meta:
-        verbose_name_plural = "News List"
+        verbose_name_plural = "News"
 
     def __str__(self):
         return self.title
@@ -150,7 +150,7 @@ class Spotlight(models.Model):
     pdf_document = models.FileField()
     photo = models.FileField(default='settings.MEDIA_ROOT/logos/anonymous.jpg')
     class Meta:
-        verbose_name_plural = "Spotlights List"
+        verbose_name_plural = "Spotlights"
     def __str__(self):
         return self.headline
 
@@ -160,7 +160,7 @@ class PolicyBriefs(models.Model):
     pdf_document = models.FileField()
     photo = models.FileField(default='settings.MEDIA_ROOT/logos/anonymous.jpg')
     class Meta:
-        verbose_name_plural = "Policy Briefs List"
+        verbose_name_plural = "Policy Briefs"
     def __str__(self):
         return self.headline
 
@@ -172,7 +172,7 @@ class Blog(models.Model):
     image = models.FileField(default='settings.MEDIA_ROOT/logos/anonymous.jpg')
     description = RichTextField()
     class Meta:
-        verbose_name_plural = "Blogs List"
+        verbose_name_plural = "Blogs"
     def __str__(self):
         return self.title
 
@@ -180,11 +180,11 @@ class Jobs(models.Model):
     title = models.CharField(max_length = 200)
     description = RichTextField()
     job_document = models.FileField()
-
+    uploaded_date = models.DateTimeField(blank = True, null = True)
     def snippet(self):
         return self.description[: 100]+ '...'
     class Meta:
-        verbose_name_plural = "Jobs List"
+        verbose_name_plural = "Jobs"
     def __str__(self):
         return self.title
 
@@ -193,7 +193,7 @@ class Calls(models.Model):
     description = RichTextField()
     call_document = models.FileField()
     class Meta:
-        verbose_name_plural = "Calls List"
+        verbose_name_plural = "Calls"
     def __str__(self):
         return self.title
 
@@ -202,7 +202,7 @@ class Opportunity(models.Model):
     description = RichTextField()
     opportunity_document = models.FileField()
     class Meta:
-        verbose_name_plural = "Opportunity List"
+        verbose_name_plural = "Opportunity"
     def __str__(self):
         return self.title
 
@@ -230,7 +230,7 @@ class Publications(models.Model):
     website_link = models.CharField(max_length = 200)
     abstract = RichTextField()
     class Meta:
-        verbose_name_plural = "Publications List"
+        verbose_name_plural = "Publications"
     def __str__(self):
         return self.title
 
@@ -313,7 +313,7 @@ class FAQs(models.Model):
     title = models.CharField(max_length = 200)
     description= RichTextField()
     class Meta:
-        verbose_name_plural = "FAQs list"
+        verbose_name_plural = "FAQs"
     def __str__(self):
         return self.title
 
@@ -321,7 +321,7 @@ class Contact(models.Model):
     email = models.EmailField()
     description= RichTextField()
     class Meta:
-        verbose_name_plural = "Customer contact list"
+        verbose_name_plural = "Customer contact "
     def __str__(self):
         return self.email
 
@@ -331,7 +331,7 @@ class Subscription(models.Model):
     topic= models.CharField(max_length = 100)
     status = models.BooleanField(default = True)
     class Meta:
-        verbose_name_plural = "Subscriber list"
+        verbose_name_plural = "Subscriber "
     def __str__(self):
         return self.email
 
@@ -339,4 +339,4 @@ class Subscription(models.Model):
 class SiteVideo(models.Model):
     video_file = models.FileField()
     class Meta:
-        verbose_name_plural = "Website video list"
+        verbose_name_plural = "Website video "

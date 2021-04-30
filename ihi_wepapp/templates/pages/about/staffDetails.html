@@ -5,10 +5,18 @@
 <div class="staff_details_page">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="content">
-          <h1>{{ get_staff.first_name }} {{ get_staff.last_name }}</h1>
-          <p class="blockquote-footer"><cite>{{ get_staff.position }}</cite></p>
+      <div class="col-md-8">
+        <div class="content w3-card">
+          <div class="items">
+            <div class="left">
+              <p>{{ get_staff.first_name|first  }}{{ get_staff.last_name|first }}</p>
+            </div>
+            <div class="right">
+              <h1>{{ get_staff.first_name }} {{ get_staff.last_name }}</h1>
+              <p class="blockquote-footer"><cite>{{ get_staff.position }}</cite></p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -17,31 +25,24 @@
 <div class="staff_details_section_one">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="heading">
-          <h1>staff profile</h1>
-        </div>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-md-4">
         <div class="profile_image w3-card">
           <img src="{{ get_staff.profile_image.url }}" alt="{{ get_staff.first_name}} {{ get_staff.last_name}}" class="img-fluid">
           <p>{{ get_staff.position }}</p>
           <span>{{ get_staff.email }}</span>
           {% if get_staff.publication_link %}
-          <span><a href="{{ get_staff.publication_link }}" target="_blank">read more</a></span>
+          <span><a href="{{ get_staff.publication_link }}" target="_blank">Publication(s)</a></span>
           {% endif %}
         </div>
       </div>
       <div class="col-md-8">
         <div class="headline_and_description_section">
             {% if get_staff.headline %}
-              <div class="headline w3-card">
+              <div class="headline">
                 <h1>{{ get_staff.headline }}</h1>
               </div>
             {% endif %}
-            <div class="description w3-card p-4">
+            <div class="description">
               <p>{{ get_staff.description|safe }}</p>
             </div>
         </div>
