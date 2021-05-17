@@ -496,7 +496,12 @@ body{
   color: var(--mainColor);
 }
 .home_event_news_job_container .content .news .new_content{
-  /* border-bottom: 1px solid var(--mainColor); */
+  transition: all .3s ease-out;
+  padding: 10px;
+}
+.home_event_news_job_container .content .news .new_content:hover{
+  background: var(--grayColor);
+  padding: 10px;
 }
 .home_event_news_job_container .content .news .new_content a{
   text-decoration: none;
@@ -525,7 +530,12 @@ body{
   color: var(--mainColor);
 }
 .home_event_news_job_container .content .events .events_content{
-  /* border-bottom: 1px solid var(--mainColor); */
+  transition: all .3s ease-out;
+  padding: 10px;
+}
+.home_event_news_job_container .content .events .events_content:hover{
+  background: var(--grayColor);
+  padding: 10px;
 }
 .home_event_news_job_container .content .events .events_content a{
   /* text-decoration: none; */
@@ -585,7 +595,8 @@ body{
 
 .home_counter_section{
   padding: 50px 0px;
-  background-image: url('../images/bg4.jpg');
+  /* background-image: url('../images/bg4.jpg'); */
+  background: var(--grayColor);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -1595,6 +1606,61 @@ body{
   position: sticky;
   top: 100px;
 }
+.new_section_one{
+  padding: 20px 0px;
+}
+.new_section_one .content_item{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+.new_section_one .content_item p.caption{
+  background: var(--grayColor);
+  padding: 10px;
+  font-size: 14px;
+  font-style: italic;
+}
+.new_section_one .content_item a{
+  font-family: var(--fontFamily);
+  color: var(--blackColor);
+  text-decoration: none;
+}
+.new_section_one .content_item a h1{
+  font-family: var(--fontFamily);
+  font-size: 20px;
+  color: var(--blackColor);
+  font-weight: bold;
+}
+.new_section_one .content_item p.date{
+  font-size: 13px;
+  font-family: var(--fontFamily);
+}
+.new_section_two{
+  padding: 20px 0px;
+}
+.new_section_two .content{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+.new_section_two .content .news_item{
+  background: var(--grayColor);
+}
+.new_section_two .content .news_item img{
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /*================= staff_page =================*/
 .staff_page{

@@ -188,11 +188,16 @@ def eventDetails(request, id):
 
 
 def newsPage(request):
+    try:
+        latest_news = News.objects.latest('id')
+    except Exception as e:
+        print("something went wrong")
     get_news = News.objects.all().order_by('-id')
     get_calls = Calls.objects.all().order_by('-id')[:3]
     context = {
         'get_news':get_news,
-        'get_calls':get_calls
+        'get_calls':get_calls,
+        'latest_news':latest_news,
     }
     template_name = 'pages/news/news.html'
     return render(request, template_name, context)
