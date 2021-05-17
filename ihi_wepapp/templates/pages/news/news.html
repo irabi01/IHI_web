@@ -13,19 +13,51 @@
     </div>
   </div>
 </div>
-<!-- <div class="teplate_change">
+
+<!-- <div class="new_section_one">
   <div class="container">
     <div class="row">
-      <div class="col-md-8"></div>
-      <div class="col-md-4">
-        <div class="content">
-          <button type="button" name="button" id="grid_button"><i class="fa fa-th-large"></i></button>
-          <button type="button" name="button" id="list_button"><i class="fa fa-list"></i></button>
+      <div class="col-md-12">
+        <div class="content_item">
+          <div class="new_item">
+            <img src="{{ latest_news.image.url }}" alt="{{ latest_news.title }}" class="img-fluid">
+          </div>
+          <div class="new_item">
+            <p class="caption">{{ latest_news.caption }}</p>
+            <a href="{% url 'newsDetails' latest_news.id %}"><h1>{{ latest_news.title }}</h1></a>
+            <p class="date">{{ latest_news.date }}</p>
+            <p>{{ latest_news.description|safe|truncatechars:250 }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div> -->
+
+<!-- <div class="new_section_two">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          {% for news in get_news %}
+            <div class="news_item">
+              <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid">
+              <p class="caption">{{ news.caption }}</p>
+              <div class="description">
+                <a href="{% url 'newsDetails' news.id %}"><h1>{{ news.title }}</h1></a>
+                <p class="date"></p>
+                <p>{{ news.description|safe|truncatechars:150 }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
 <div class="events_section_one" id="news_grid_view">
   <div class="container">
     <div class="row">
@@ -72,14 +104,7 @@
           {% endfor %}
         </div>
       </div>
-      <!-- <div class="col-md-5">
-        <div class="calls_list" data-aos="fade-left">
-          <h1>latest calls</h1>
-          {% for call in get_calls %}
-          <a href="{{ call.call_document.url }}" target="_blank"><p>{{ call.title }}</p></a>
-          {% endfor %}
-        </div>
-      </div> -->
+
     </div>
   </div>
 </div>
