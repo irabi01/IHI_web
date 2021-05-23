@@ -231,7 +231,7 @@
             {% for n in get_news %}
             <div class="new_content">
               <a href="{% url 'newsDetails' n.id %}"><h1>{{ n.title }}</h1></a>
-              <p>{{ n.description|safe|truncatechars:180}}</p>
+              <p>{{ n.description|safe|truncatechars:200}}</p>
               <span>{{ n.date }}</span>
             </div>
             {% endfor %}
@@ -242,7 +242,7 @@
             {% for e in get_events %}
             <div class="events_content">
               <a href="{% url 'eventDetails' e.id %}"><h1>{{ e.title }}</h1></a>
-              <p>{{ e.description|safe|truncatechars:180}}</p>
+              <p>{{ e.description|safe|truncatechars:200}}</p>
               <span>{{ e.event_date }}, {{ e.event_time}}</span>
             </div>
             {% endfor %}
