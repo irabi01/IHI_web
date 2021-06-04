@@ -1165,13 +1165,14 @@ body{
   color: var(--blackColor);
   font-weight: bold;
 }
-.job_section_one .content .job_list span.this_is_uploaded_date{
+.job_section_one .content .job_list .this_is_uploaded_date{
   font-family: var(--fontFamily);
   font-size: 14px;
   color: var(--blackColor);
   font-weight: bold;
   background: var(--whiteColor);
   padding: 5px 10px;
+  border-radius: var(--borderRadius);
 }
 .job_section_one .content .job_list p{
   font-family: var(--fontFamily);

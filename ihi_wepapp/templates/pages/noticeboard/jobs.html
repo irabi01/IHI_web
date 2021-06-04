@@ -21,7 +21,9 @@
           {% for job in get_job %}
           <div class="job_list">
             {% if job.uploaded_date %}
-              <span class="this_is_uploaded_date w3-card">{{ job.uploaded_date }}</span>
+            <blockquote>
+              <footer class="blockquote-footer"><cite title="Source Title"><strong>{{ job.uploaded_date }}</strong></cite></footer>
+            </blockquote>
             {% endif %}
             <h1>{{ job.title }}</h1>
             <p>{{ job.description|safe }}</p>
