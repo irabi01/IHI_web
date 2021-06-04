@@ -19,22 +19,24 @@ style="
 <div class="title_section">
   <div class="container">
     <div class="row">
-      <div class="col-md-10 offset-md-1">
+      <div class="col-md-8 offset-md-2">
         <div class="content">
           <blockquote class="blockquote">
             <p class="mb-0">{{ get_single_news.title }}</p>
-            <footer class="blockquote-footer"><cite title="Source Title">{{ get_single_news.caption}}</cite></footer>
             <footer class="blockquote-footer">{{ get_single_news.date }}</footer>
           </blockquote>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-10 offset-md-1">
+      <div class="col-md-8 offset-md-2">
         <div class="description_section">
           <div class="image_part">
             <img src="{{ get_single_news.image.url }}" alt="{{ get_single_news.title }}" class="img-fluid">
           </div>
+          <blockquote>
+            <footer class="blockquote-footer"><cite title="Source Title">{{ get_single_news.caption}}</cite></footer>
+          </blockquote>
           <p>{{ get_single_news.description|safe }}</p>
         </div>
       </div>

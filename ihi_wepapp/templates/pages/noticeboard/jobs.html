@@ -21,7 +21,7 @@
           {% for job in get_job %}
           <div class="job_list">
             {% if job.uploaded_date %}
-              <span>{{ job.uploaded_date }}</span>
+              <span class="this_is_uploaded_date w3-card">{{ job.uploaded_date }}</span>
             {% endif %}
             <h1>{{ job.title }}</h1>
             <p>{{ job.description|safe }}</p>
