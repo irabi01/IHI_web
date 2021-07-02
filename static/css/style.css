@@ -3737,3 +3737,22 @@ body{
     grid-gap: 1rem;
   }
 }
+
+
+
+
+
+
+
+/* .vcptu_page_section_nine */
+.vcptu_page_section_nine{
+  padding: 50px 0px;
+}
+.vcptu_page_section_nine h1{
+
+}
+.vcptu_page_section_nine .content{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}

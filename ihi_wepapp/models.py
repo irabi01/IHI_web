@@ -60,7 +60,10 @@ class Staffs(models.Model):
         ('DSP','Data Systems and Platforms'),('CT','Clinical Trials'),
         ('CDCIM','Chronic Diseases Clinic in Ifakara and Mwananyamala'),
         ('TRANSPORT','Transport'),
-        ('IH','Ifakara Hub')
+        ('IH','Ifakara Hub'),
+        ('RQA','Research Quality Assurance'),
+        ('VCPTU','Vector Control Product Testing Unit'),
+        ('KMC','Knowledge Management and Communications')
     )
 
 

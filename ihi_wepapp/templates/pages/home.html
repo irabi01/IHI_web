@@ -187,7 +187,7 @@
             <a href="{% url 'projectDetails' project.id %}">
             <div class="project">
                 <h1>{{ project.title }}</h1>
-                <p>{{ project.description|safe|truncatechars:200 }}</p>
+                <p>{{ project.description|safe|truncatechars:300 }}</p>
             </div>
             </a>
           {% endfor %}
