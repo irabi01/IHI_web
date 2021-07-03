@@ -295,11 +295,11 @@ def isoPage(request):
     return render(request, template_name, {})
 
 def governancePage(request):
-    get_bog = Governance.objects.filter(governance = 'BOG')
-    get_bot = Governance.objects.filter(governance = 'BOT')
-    get_sac = Governance.objects.filter(governance = 'SAC')
-    get_farc = Governance.objects.filter(governance = 'FARC')
-    get_mc = Governance.objects.filter(governance = 'MC')
+    get_bog = Governance.objects.filter(governance = 'BOG').order_by('order_of_preference')
+    get_bot = Governance.objects.filter(governance = 'BOT').order_by('order_of_preference')
+    get_sac = Governance.objects.filter(governance = 'SAC').order_by('order_of_preference')
+    get_farc = Governance.objects.filter(governance = 'FARC').order_by('order_of_preference')
+    get_mc = Governance.objects.filter(governance = 'MC').order_by('order_of_preference')
     context = {
         'get_bog': get_bog,
         'get_bot': get_bot,
@@ -365,8 +365,12 @@ def subscriptionFunction(request):
 
 
 def vcptuPage(request):
+    get_staff_for_this_unit = Staffs.objects.filter(units = "VCPTU")
+    context = {
+        'unit_staff': get_staff_for_this_unit
+    }
     template_name = 'pages/vcptu.html'
-    return render(request, template_name, {})
+    return render(request, template_name, context)
 
 
 

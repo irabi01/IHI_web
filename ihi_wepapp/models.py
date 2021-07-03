@@ -120,6 +120,7 @@ class Governance(models.Model):
     first_name = models.CharField(max_length = 50)
     last_name = models.CharField(max_length = 50)
     position = models.CharField(max_length = 100, default = "Director")
+    order_of_preference = models.PositiveIntegerField(null = True, blank = True)
     headline = models.CharField(max_length = 1000, default="")
     governance = models.CharField(max_length = 50, choices = governance_list, default = 'MC')
     email = models.EmailField(default="", max_length = 100)
